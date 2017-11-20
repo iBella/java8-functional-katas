@@ -40,7 +40,7 @@ public class DataKataUtil {
 	}
 
 	public static List<Map> videosListIdTitleTimeBoxart(Object id, List<Map> movies, List<Map> boxArts, List<Map> bookmarkList) {
-		return movies.stream().filter(movie -> movie.get("listId").equals(id)).map(video -> ImmutableMap.of("id", video.get("id"), "title", video.get("title"), "boxart", getSmallestUrlBoxArtList(id, boxArts), "time", getTimeBookmarkList(id, bookmarkList))).collect(Collectors.toList());
+		return movies.stream().filter(movie -> movie.get("listId").equals(id)).map(video -> ImmutableMap.of("id", video.get("id"), "title", video.get("title"), "boxart", getSmallestUrlBoxArtList(video.get("id"), boxArts), "time", getTimeBookmarkList(video.get("id"), bookmarkList))).collect(Collectors.toList());
 	}
 
 	public static Object getSmallestUrlBoxArtList(Object id, List<Map> boxArts) {
